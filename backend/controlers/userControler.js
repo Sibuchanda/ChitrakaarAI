@@ -22,7 +22,7 @@ export const registerUser = async (req, res) => {
     const user = await newUser.save();
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-    return res.json({ sucsess: true, token, user: { name: user.name } });
+    return res.json({ success: true, token, user: { name: user.name } });
   } catch (err) {
     console.log(err);
     return res.status(500).json({
@@ -41,11 +41,10 @@ export const loginUser = async (req, res) => {
         .status(401)
         .json({ success: false, message: "Invalid Credentials" });
     }
-
     const isMatch = await bcrypt.compare(password, user.password);
     if (isMatch) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-      return res.json({ sucsess: true, token, user: { name: user.name } });
+      return res.json({ success: true, token, user: { name: user.name } });
     } else {
       return res
         .status(401)
@@ -54,7 +53,7 @@ export const loginUser = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(500).json({
-      sucsess: false,
+      success: false,
       message: err.message,
     });
   }
@@ -62,8 +61,7 @@ export const loginUser = async (req, res) => {
 
 export const userCredit = async (req, res) => {
   try {
-    const { userId } = req.body;
-
+    const userId = req.userId;
     const user = await userModel.findById(userId);
     if (!user) {
         return res.status(401).json({ success: false, message: "Unauthorized user" });
@@ -78,7 +76,7 @@ export const userCredit = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(500).json({
-      sucsess: false,
+      success: false,
       message: err.message,
     });
   }

@@ -1,9 +1,12 @@
-import userModel from "../models/user";
+import userModel from "../models/user.js";
 import FormData from "form-data";
+import axios from 'axios'
 
-export const generateImage = async (req, res) => {
+
+const generateImage = async (req, res) => {
   try {
-    const { userId, prompt } = req.body;
+    const { prompt } = req.body;
+    const userId = req.userId;
     const user = await userModel.findById(userId);
     if (!user || !prompt) {
       return res
@@ -41,3 +44,6 @@ export const generateImage = async (req, res) => {
     return res.status(500).json({ success: false, message: err.message });
   }
 };
+
+
+export default generateImage;
