@@ -5,7 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { Home } from './pages/Home';
 import Result from './pages/Result';
 import { BuyCredits } from './pages/BuyCredits';
-import Navbar from './components/NAvbar';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import { AppContext } from './context/AppContext';
