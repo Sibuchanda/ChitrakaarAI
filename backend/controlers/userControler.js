@@ -3,6 +3,14 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import razorpay from 'razorpay';
 import transactionModel from "../models/transaction.js";
+import {z} from 'zod';
+
+
+export const signupSchema = z.object({
+  name : z.string().min(3, {message: "Username should be at least 3 character long"}).max(25,{message: "Username should be maximum 25 character long"}),
+
+  password: z.string().min(8,{message: "Password should be at least 8 character long"}).max(25,{message: "Password should be at max 25 character long"}),
+});
 
 export const registerUser = async (req, res) => {
   try {
@@ -12,6 +20,12 @@ export const registerUser = async (req, res) => {
         .status(400)
         .json({ success: false, message: "All fields are required" });
     }
+    const validation = signupSchema.safeParse({name, password});
+    if(!validation.success){
+      const error = validation.error.issues[0]?.message || "Invalid Input"
+      return res.status(400).json({success: false, message: error});
+    }
+
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     const userData = {
