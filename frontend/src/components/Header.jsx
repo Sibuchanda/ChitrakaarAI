@@ -33,13 +33,13 @@ const Header = () => {
         <p>Best text to image generaor</p>
         <img src={assets.star_icon} alt="" />
       </motion.div>
-      <h1 className="text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] mx-auto mt-10 text-center">
+      <h1 className="text-4xl md:text-6xl lg:text-8xl max-w-4xl mx-auto mt-10 font-bold text-gray-900 leading-tight">
         Turn text to <span className="text-blue-600"> image </span>, in seconds.
       </h1>
 
       <p className="text-center max-w-xl mx-auto mt-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dicta
-        dolor placeat ab dolores nostrum ipsa est quos, exercitationem iste?
+        Transform your imagination into stunning visuals with our cutting-edge AI technology. 
+          Create professional-quality images from simple text descriptions in just seconds.
       </p>
       <motion.button
         onClick={onClickHandler}

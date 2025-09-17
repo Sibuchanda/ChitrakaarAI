@@ -1,18 +1,27 @@
-import React from 'react'
-import { assets } from '../assets/assets'
+import React from "react";
+import { assets } from "../assets/assets";
 
 const Footer = () => {
   return (
-    <div className='flex items-center justify-between gap-4 py-3 mt-20'>
-        <img src={assets.logo} alt="" width={150}/>
-        <p className='flex-1 border-l border-gray-400 pl-4 text-sm text-gray-500 max-sm:hidden'>Copyright @ChitrakaarAI | All right reserved.</p> 
-        <div className='flex gap-3'>
-            <img src={assets.facebook_icon} alt="" width={35}/>
-            <img src={assets.twitter_icon} alt="" width={35}/>
-            <img src={assets.instagram_icon} alt="" width={35}/>
-        </div>
+    <div className="flex items-center justify-between gap-4 py-3 mt-20">
+      <img
+        src={assets.logo}
+        alt="ChitrakaarAI Logo"
+        className="w-8 sm:w-10 md:w-12 lg:w-14 xl:w-16"
+      />
+      <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold tracking-tight text-blue-500">
+        ChitrakaarAI
+      </h1>
+      <p className="flex-1 border-l border-gray-400 pl-4 text-sm text-gray-500 max-sm:hidden">
+        Copyright @ChitrakaarAI | All right reserved.
+      </p>
+      <div className="flex gap-3">
+        <img src={assets.facebook_icon} alt="" width={35} />
+        <img src={assets.twitter_icon} alt="" width={35} />
+        <img src={assets.instagram_icon} alt="" width={35} />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

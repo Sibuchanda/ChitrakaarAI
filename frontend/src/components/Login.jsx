@@ -28,6 +28,7 @@ const Login = () => {
           setUser(data.user);
           localStorage.setItem("token", data.token);
           setShowLogin(false);
+          toast.success("Login successful");
         } else {
           toast.error(data.message);
         }
@@ -45,10 +46,10 @@ const Login = () => {
           confirmpassword,
         });
         if (data.success) {
-          setToken(data.token);
-          setUser(data.user);
-          localStorage.setItem("token", data.token);
-          setShowLogin(false);
+          setEmail("");
+          setPassword("");
+          toast.success("Signup successful");
+          setState('Login');
         } else {
           toast.error(data.message);
         }

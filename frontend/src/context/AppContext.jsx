@@ -63,6 +63,8 @@ const generateImage = async (prompt) => {
     setToken("");
     setUser(null);
     setCredit(false);
+    navigate('/');
+    toast.success("Logout successful");
   };
 
   useEffect(() => {

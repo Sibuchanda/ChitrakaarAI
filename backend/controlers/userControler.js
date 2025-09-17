@@ -4,6 +4,8 @@ import jwt from "jsonwebtoken";
 import razorpay from 'razorpay';
 import transactionModel from "../models/transaction.js";
 import {z} from 'zod';
+import crypto from 'crypto';
+
 
 
 export const signupSchema = z.object({
@@ -26,12 +28,19 @@ export const registerUser = async (req, res) => {
       return res.status(400).json({success: false, message: error});
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const existUser = await userModel.findOne({email});
+    if(existUser){
+      return res.status(400).json({success: false, message: "User already exists!"});
+    }
+
+
+    const saltValue = crypto.randomBytes(16).toString("hex");
+    const hashedPassword = crypto.createHash("sha256").update(saltValue + password).digest("hex");
     const userData = {
       name,
       email,
       password: hashedPassword,
+      saltValue,
     };
 
     const newUser = new userModel(userData);
@@ -57,8 +66,8 @@ export const loginUser = async (req, res) => {
         .status(401)
         .json({ success: false, message: "Invalid Credentials" });
     }
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (isMatch) {
+    const hashedPassword = crypto.createHash("sha256").update(user.saltValue + password).digest("hex");
+    if (hashedPassword===user.password) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
       return res.json({ success: true, token, user: { name: user.name } });
     } else {
