@@ -15,8 +15,8 @@ const Navbar = () => {
           alt="ChitrakaarAI Logo"
           className="w-8 sm:w-10 md:w-12 lg:w-14 xl:w-16"
         />
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold tracking-tight text-blue-500">
-          ChitrakaarAI
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold tracking-tight text-gray-900">
+          Chitrakaar<span className="text-blue-600">AI</span>
         </h1>
       </Link>
 

@@ -3,24 +3,30 @@ import { assets } from "../assets/assets";
 
 const Footer = () => {
   return (
-    <div className="flex items-center justify-between gap-4 py-3 mt-20">
-      <img
-        src={assets.logo}
-        alt="ChitrakaarAI Logo"
-        className="w-8 sm:w-10 md:w-12 lg:w-14 xl:w-16"
-      />
-      <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold tracking-tight text-blue-500">
-        ChitrakaarAI
-      </h1>
-      <p className="flex-1 border-l border-gray-400 pl-4 text-sm text-gray-500 max-sm:hidden">
-        Copyright @ChitrakaarAI | All right reserved.
-      </p>
-      <div className="flex gap-3">
-        <img src={assets.facebook_icon} alt="" width={35} />
-        <img src={assets.twitter_icon} alt="" width={35} />
-        <img src={assets.instagram_icon} alt="" width={35} />
+    <footer className="w-full border-t border-gray-200 mt-20">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 py-6 px-4">
+        <h1 className="text-xl md:text-2xl font-bold tracking-tight text-gray-900">
+          Chitrakaar<span className="text-blue-600">AI</span>
+        </h1>
+
+        <p className="text-sm text-gray-500 order-last md:order-none text-center md:text-left">
+          © {new Date().getFullYear()} ChitrakaarAI. All rights reserved.
+        </p>
+
+        {/* Social Icons */}
+        <div className="flex gap-4">
+          <a href="#" aria-label="Facebook">
+            <img src={assets.facebook_icon} alt="Facebook" className="w-6 h-6 opacity-70 hover:opacity-100 transition" />
+          </a>
+          <a href="#" aria-label="Twitter">
+            <img src={assets.twitter_icon} alt="Twitter" className="w-6 h-6 opacity-70 hover:opacity-100 transition" />
+          </a>
+          <a href="#" aria-label="Instagram">
+            <img src={assets.instagram_icon} alt="Instagram" className="w-6 h-6 opacity-70 hover:opacity-100 transition" />
+          </a>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

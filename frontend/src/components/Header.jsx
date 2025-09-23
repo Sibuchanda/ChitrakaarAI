@@ -3,8 +3,31 @@ import { assets } from "../assets/assets";
 import { motion } from "motion/react";
 import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
+import { Marquee } from "./Marquee";
 
 const Header = () => {
+
+  const lowerMarquee = ["/01.png",
+    "/02.png",
+    "/03.png",
+    "/04.png",
+    "/05.png",
+    "/06.png",
+    "/07.png",
+    "/02.png",
+    "/03.png",
+    "/04.png",
+    "/05.png",
+    "/06.png",
+    "/07.png",
+    "/06.png",
+    "/02.png",
+    "/03.png",
+
+  ]
+
+
+
   const { user, setShowLogin } = useContext(AppContext);
   const navigate = useNavigate();
 
@@ -58,17 +81,7 @@ const Header = () => {
       </motion.button>
 
       <div className="flex flex-wrap justify-center mt-16 gap-3">
-        {Array(6)
-          .fill("")
-          .map((item, index) => (
-            <img
-              className="rounded hover:scale-105 transition-all duration-300 cursor-pointer max-sm:w-10"
-              src={index % 2 === 0 ? assets.sample_img_2 : assets.sample_img_1}
-              alt=""
-              key={index}
-              width={70}
-            />
-          ))}
+        <Marquee images={lowerMarquee} from={0} to={"-100%"}/>
       </div>
       <p className="mt-2 text-neutral-600">Generated Images form CitrakaarAI</p>
     </motion.div>
