@@ -28,12 +28,12 @@ const Navbar = () => {
               className="flex items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700"
             >
               <img src={assets.credit_star} alt="" className="w-5" />
-              <p className="text-xs sm:text-sm font-medium text-gray-600">
+              <p className="text-xs sm:text-sm font-medium text-gray-600 cursor-pointer">
                 Credits left : {credit}
               </p>
             </button>
             <p className="text-gray-600 max-sm:hidden pl-4">Hi, {user.name}</p>
-            <div className="relative group">
+            <div className="relative group cursor-pointer">
               <img
                 src={assets.profile_icon}
                 alt=""

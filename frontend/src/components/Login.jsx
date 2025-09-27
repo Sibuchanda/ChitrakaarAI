@@ -134,7 +134,7 @@ const Login = () => {
           Forgot password?
         </p>
 
-        <button className="bg-blue-600 w-full text-white py-2 rounded-full">
+        <button className="bg-blue-600 w-full text-white py-2 rounded-full cursor-pointer">
           {state === "Login" ? "Login" : "Create account"}
         </button>
 

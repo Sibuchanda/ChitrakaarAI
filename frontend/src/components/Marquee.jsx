@@ -9,7 +9,7 @@ export const Marquee = ({ images, from, to }) => {
       <div className="pointer-events-none absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-white to-transparent z-10" />
 
       {/* Upper Marquee */}
-      <div className="flex space-x-6">
+      <div className="flex">
         <motion.div
           initial={{ x: from }}
           animate={{ x: to }}
