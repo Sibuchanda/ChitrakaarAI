@@ -3,6 +3,7 @@
 ChitrakaarAI is a **text-to-image web application** powered by the **Stable Diffusion model**.  
 It allows users to generate AI-driven artwork from text prompts with a simple and user-friendly interface.  
 
+## Live link : https://chitrakaarai.onrender.com
 
 
 ## 🚀 Features  
